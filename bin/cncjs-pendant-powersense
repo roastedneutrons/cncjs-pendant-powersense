@@ -14,7 +14,7 @@ var exec = require('child_process').exec;
 var sleep = require('sleep');
 var now = require("performance-now")
 var gpio = require('onoff').Gpio,
-sensePin = new gpio(4, 'in', 'both',{debounceTimeout: 10});  // Define GPIO pin on Raspberry Pi
+sensePin = new gpio(4, 'in', 'both',{debounceTimeout: 50});  // Define GPIO pin on Raspberry Pi
 
 
 var options = {};
@@ -126,6 +126,8 @@ var createServer = function(options) {
             // power is up again. Resume
             if(wasRunning()){
                 //Resume
+                pauseDuration=now()-pausedAt;
+                if(pauseDuration<1000) sleep.msleep(Math.floor(1000-pauseDuration));
                 socket.emit('write', options.port, "~");
             }
             
@@ -135,6 +137,7 @@ var createServer = function(options) {
             //console.log(savedState);
             if(isRunning()){
                 //Pause
+                pausedAt=now();
                 socket.emit('write', options.port, "!");
             }
 
