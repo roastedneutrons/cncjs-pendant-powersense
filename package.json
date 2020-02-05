@@ -1,0 +1,45 @@
+{
+  "name": "cncjs-pendant-powersense",
+  "version": "0.0.1",
+  "description": "Pause your CNC when power goes out, and resume when power returns automatically",
+  "main": "./index.js",
+  "engines": {
+    "node": "~12.14.1"
+  },
+  "bin": {
+    "cncjs-pendant-powersense": "./bin/cncjs-pendant-powersense"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roastedneutrons/cncjs-pendant-powersense.git"
+  },
+  "keywords": [
+    "cncjs",
+    "pendant",
+    "raspberry",
+    "pi",
+    "power",
+    "failure"
+  ],
+  "author": "Sudhir Palliyil <sudhirpalliyil@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roastedneutrons/cncjs-pendant-powersense/issues"
+  },
+  "homepage": "https://github.com/roastedneutrons/cncjs-pendant-powersense#readme",
+  "dependencies": {
+    "commander": "^4.1.0",
+    "inquirer": "^7.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "lodash.get": "^4.4.2",
+    "serialport": "^8.0.6",
+    "socket.io-client": "^2.3.0",
+    "sleep": "^6.1.0",
+    "performance-now": "^2.1.0",
+    "onoff": "^5.0.1"
+  }
+}
